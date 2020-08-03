@@ -59,8 +59,8 @@ class ErpJob(models.Model):
                 ('НРД', 'НРД'),
                 ('РТК', 'РТК'))
     pr_type = models.CharField(max_length=5, choices=PR_TYPES, default='НРД', verbose_name='Тип задания')
-    pr_number = models.PositiveSmallIntegerField(max_length=6, verbose_name='Номер задания')
-    pr_creation_date = models.DateTimeField(name='Дата создания', null=True)
+    pr_number = models.PositiveSmallIntegerField(verbose_name='Номер задания')
+    pr_creation_date = models.DateTimeField(verbose_name='Дата создания', null=True)
 
     def __str__(self):
         return str(self.pr_type) + '-' + str(self.pr_number)
@@ -68,3 +68,4 @@ class ErpJob(models.Model):
     class Meta:
         verbose_name = 'Задание'
         verbose_name_plural = 'Задания'
+

@@ -1,7 +1,11 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+
+from .models import ErpJob
+
+
 # Create your views here.
 
 
 def index(request):
-    return HttpResponse("Первая страница. Тест.")
+    jobs = ErpJob.objects.order_by()
+    return render(request, 'erp_system/base.html', {'jobs': jobs})

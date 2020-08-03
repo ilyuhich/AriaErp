@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta content="text/html; charset=utf-8"
+          http-equiv="Content-Type">
+
+    <title>Главная страница</title>
+</head>
+<body>
+    <h1>Список задач</h1>
+    {% for job in jobs %}
+        <div>
+            <h3>{{ job.pr_type }} - {{ job.pr_number }}</h3>
+            <p> {{ job.job_addr }}      </p>
+        </div>
+    {% endfor %}
+</body>
+</html>
