@@ -9,7 +9,7 @@ from .models import ErpJobType
 from .models import ErpJob
 
 
-class ErpJobAdmin(admin.ModelAdmin):
+class ErpJobNameAdmin(admin.ModelAdmin):
     list_display = ('job_name', 'dep_name')
 
 
@@ -17,8 +17,14 @@ class ErpEmployeesAdmin(admin.ModelAdmin):
     list_display = ('emp_second_name', 'emp_name', 'emp_middle_name')
 
 
-admin.site.register(ErpJobName, ErpJobAdmin)
+class ErpJobAdmin(admin.ModelAdmin):
+    list_display = ('__str__', 'job_addr', 'job_type')
+    list_display_links = ('job_addr', '__str__')
+    search_fields = ('pr_number', 'pr_type')
+
+
+admin.site.register(ErpJobName, ErpJobNameAdmin)
 admin.site.register(ErpJobDepartment)
 admin.site.register(ErpEmployees, ErpEmployeesAdmin)
-admin.site.register(ErpJob)
+admin.site.register(ErpJob, ErpJobAdmin)
 admin.site.register(ErpJobType)
